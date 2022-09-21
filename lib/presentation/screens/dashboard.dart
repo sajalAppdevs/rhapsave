@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/bottom_bar.dart';
-import 'create.dart';
+import 'create_rhapsave/create_rhapsave.dart';
 import 'profile.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -17,13 +17,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
   final items = const [
     BottomBarItem(Icons.home_outlined, 'Home'),
     BottomBarItem(Icons.wallet_outlined, 'Payment'),
-    BottomBarItem(Icons.wallet_outlined, 'Create'),
+    BottomBarItem(Icons.wallet_outlined, 'Create Rhapsave'),
     BottomBarItem(Icons.person_outlined, 'Profile'),
   ];
   final pages = const [
     SizedBox(),
     SizedBox(),
-    CreateScreen(),
+    CreateRhapsaveScreen(),
     ProfileScreen(),
   ];
 
