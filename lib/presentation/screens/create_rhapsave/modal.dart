@@ -3,8 +3,15 @@ import 'package:flutter/material.dart';
 import '../../core/dimens.dart';
 import 'percentage.dart';
 
-class CreateRhapsaveModal extends StatelessWidget {
+class CreateRhapsaveModal extends StatefulWidget {
   const CreateRhapsaveModal({super.key});
+
+  @override
+  State<CreateRhapsaveModal> createState() => _CreateRhapsaveModalState();
+}
+
+class _CreateRhapsaveModalState extends State<CreateRhapsaveModal> {
+  var _percent = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +22,7 @@ class CreateRhapsaveModal extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Awesome',
-            style: theme.textTheme.headline4,
-          ),
+          Text('Awesome', style: theme.textTheme.headline4),
           Text(
             'What percentage of your income would you like to save?',
             style: theme.textTheme.headline5?.copyWith(
@@ -26,7 +30,14 @@ class CreateRhapsaveModal extends StatelessWidget {
             ),
           ),
           vSpace(sSecondaryPadding / 2),
-          const SelectPercentage(),
+          SelectPercentage(
+            selected: _percent,
+            onValueChanged: (value) {
+              setState(() {
+                _percent = value;
+              });
+            },
+          ),
           const SizedBox(
             width: double.infinity,
             child: ElevatedButton(
@@ -38,7 +49,9 @@ class CreateRhapsaveModal extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               child: const Text('Create Rhapsave'),
             ),
           ),
