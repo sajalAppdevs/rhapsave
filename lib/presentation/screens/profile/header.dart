@@ -1,9 +1,9 @@
 import 'package:boxy/boxy.dart';
 import 'package:flutter/material.dart';
 
-import '../core/assets.dart';
-import '../core/dimens.dart';
-import 'user_card.dart';
+import '../../core/assets.dart';
+import '../../core/dimens.dart';
+import '../../widgets/user_card.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({

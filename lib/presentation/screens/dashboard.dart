@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/bottom_bar.dart';
-import 'create_rhapsave/create_rhapsave.dart';
-import 'profile.dart';
+import 'create_rhapsave/screen.dart';
+import 'profile/screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);

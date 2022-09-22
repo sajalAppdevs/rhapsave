@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../core/assets.dart';
 import '../../core/dimens.dart';
-import '../../widgets/profile_header.dart';
+import '../profile/header.dart';
 import 'modal.dart';
 
 class CreateRhapsaveScreen extends StatelessWidget {
