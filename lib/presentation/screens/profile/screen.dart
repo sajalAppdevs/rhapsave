@@ -71,6 +71,7 @@ class ProfileItem extends StatelessWidget {
   Widget build(BuildContext context) {
     const color = Color(0xFF484848);
     final theme = Theme.of(context);
+    final title = item['title'] as String;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -80,12 +81,20 @@ class ProfileItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(sSecondaryPadding / 2),
           ),
           child: ListTile(
+            onTap: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(title),
+                  duration: const Duration(milliseconds: 500),
+                ),
+              );
+            },
             leading: Icon(
               item['icon'] as IconData,
               color: theme.colorScheme.primary,
             ),
             title: Text(
-              item['title'] as String,
+              title,
               style: theme.textTheme.bodyText2?.copyWith(
                 fontWeight: FontWeight.w500,
                 color: color,

@@ -1,42 +1,12 @@
 import 'package:flutter/material.dart';
+import '../../../data/model/saving.dart';
 import '../../core/assets.dart';
 import '../../core/dimens.dart';
-import '../profile/header.dart';
+import 'card.dart';
 import 'modal.dart';
 
 class CreateRhapsaveScreen extends StatelessWidget {
   const CreateRhapsaveScreen({Key? key}) : super(key: key);
-
-  static const _items = [
-    {
-      'icon': Icons.security_outlined,
-      'title': 'Security',
-    },
-    {
-      'icon': Icons.credit_card_outlined,
-      'title': 'Cards',
-    },
-    {
-      'icon': Icons.notifications_outlined,
-      'title': 'Notifications',
-    },
-    {
-      'icon': Icons.support_agent,
-      'title': 'Live Support',
-    },
-    {
-      'icon': Icons.info_outline,
-      'title': 'About Us',
-    },
-    {
-      'icon': Icons.contact_phone_outlined,
-      'title': 'Contact Us',
-    },
-    {
-      'icon': Icons.credit_card_off_outlined,
-      'title': 'Terms & Privacy Policy',
-    },
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -75,9 +45,14 @@ class CreateRhapsaveScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: ListView(
+        child: ListView.separated(
           shrinkWrap: true,
-          children: [],
+          itemCount: testSavings.length,
+          itemBuilder: (_, i) => RhapsaveSavingsCard(testSavings[i]),
+          separatorBuilder: (_, __) => const SizedBox(
+            height: sSecondaryPadding,
+          ),
+          padding: const EdgeInsets.all(sPadding),
         ),
       ),
     );
@@ -92,9 +67,7 @@ class CreateRhapsaveScreen extends StatelessWidget {
           topRight: Radius.circular(30),
         ),
       ),
-      builder: (_) {
-        return const CreateRhapsaveModal();
-      },
+      builder: (_) => const CreateRhapsaveModal(),
     );
   }
 }
