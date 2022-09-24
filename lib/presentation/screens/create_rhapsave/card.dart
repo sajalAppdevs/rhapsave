@@ -3,16 +3,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../data/model/saving.dart';
 import '../../core/dimens.dart';
 import 'indicator.dart';
 
-final _amountFormatter = NumberFormat.simpleCurrency(
-  name: 'NGN',
-  locale: 'en_NG',
-);
+final _amountFormatter = NumberFormat.currency(symbol: 'N', decimalDigits: 0);
 
 class RhapsaveSavingsCard extends StatelessWidget {
   final RhapsaveSaving _saving;
@@ -66,11 +62,10 @@ class RhapsaveSavingsCard extends StatelessWidget {
                       vSpace(sSecondaryPadding / 2),
                       Text(
                         _amountFormatter.format(_saving.amount),
-                        style:
-                            GoogleFonts.robotoTextTheme().headline5?.copyWith(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w900,
-                                ),
+                        style: theme.textTheme.headline5?.copyWith(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w900,
+                        ),
                       ),
                       Text(
                         'Save automatically towards several goals.',
@@ -101,6 +96,7 @@ class RhapsaveSavingsCard extends StatelessWidget {
               vSpace(sSecondaryPadding / 2),
               Wrap(
                 spacing: 4,
+                alignment: WrapAlignment.center,
                 children: _saving.savings.entries
                     .toList()
                     .asMap()
